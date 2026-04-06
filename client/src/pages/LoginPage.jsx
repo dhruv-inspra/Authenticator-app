@@ -53,7 +53,7 @@ export default function LoginPage() {
       }
       navigate('/verify-otp');
     } catch (err) {
-      setError(err.message);
+      setError(typeof err.message === 'string' ? err.message : 'Something went wrong. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -66,7 +66,7 @@ export default function LoginPage() {
       await signInWithGoogle();
       navigate('/verify-otp');
     } catch (err) {
-      setError(err.message);
+      setError(typeof err.message === 'string' ? err.message : 'Something went wrong. Please try again.');
     } finally {
       setLoading(false);
     }
